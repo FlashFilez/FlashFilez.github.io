@@ -12,7 +12,9 @@
             const backendHost = "https://Jishnupg-FileToLink.hf.space";
 
             if (hash) {
-                const src = `${backendHost}/f/${hash}/${encodeURIComponent(fileName)}`;
+                const src = hash.length === 20 
+                    ? `${backendHost}/f/${hash}/${encodeURIComponent(fileName)}`
+                    : `${backendHost}/${hash}/${encodeURIComponent(fileName)}`;
                 // Instant zero-delay direct download trigger
                 window.location.replace(src);
             }

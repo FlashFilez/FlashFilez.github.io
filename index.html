@@ -43,7 +43,11 @@
             
             let src = "";
             if (hash) {
-                src = `${backendHost}/f/${hash}/${encodeURIComponent(fileName)}`;
+                if (hash.length === 20) {
+                    src = `${backendHost}/f/${hash}/${encodeURIComponent(fileName)}`;
+                } else {
+                    src = `${backendHost}/${hash}/${encodeURIComponent(fileName)}`;
+                }
             } else if (params.get('src')) {
                 src = params.get('src');
             }
