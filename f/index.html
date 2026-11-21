@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Downloading...</title>
+    <script>
+        (function() {
+            const params = new URLSearchParams(window.location.search);
+            const hash = params.get('id') || params.get('hash') || '';
+            const rawFileName = params.get('file') || params.get('name') || '';
+            const fileName = rawFileName ? decodeURIComponent(rawFileName) : 'file';
+            const backendHost = "https://Jishnupg-FileToLink.hf.space";
+
+            if (hash) {
+                const src = `${backendHost}/f/${hash}/${encodeURIComponent(fileName)}`;
+                // Instant zero-delay direct download trigger
+                window.location.replace(src);
+            }
+        })();
+    </script>
+</head>
+<body style="background:#090a0f; margin:0; padding:0;"></body>
+</html>
